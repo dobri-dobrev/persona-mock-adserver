@@ -5,8 +5,11 @@ var express = require('express');
 var fs = require('fs');
 var http = require('http');
 
-var xml = fs.readFileSync('vast1.xml', 'utf8');
+var vast1 = fs.readFileSync('vast1.xml', 'utf8');
+var vast2 = fs.readFileSync('vast2.xml', 'utf8');
+var vast3 = fs.readFileSync('vast3.xml', 'utf8');
 
+var vasts = [vast1, vast2, vast3];
 
 
 var app = express();
@@ -19,8 +22,9 @@ server.listen(port);
 
 function randomAd(req, res, next){
 	res.set('Content-Type', 'text/xml');
-	res.send(xml);
-  console.log('returned vast 1 ad');
+  var adId = getRandomInt(0,2);
+	res.send(vasts[adId]);
+  console.log('returned ad ' + adId);
 }
 
 
@@ -38,4 +42,8 @@ function normalizePort(val) {
   }
 
   return false;
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
