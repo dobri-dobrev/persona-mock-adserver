@@ -1,0 +1,15 @@
+{
+  "name": "persona-mock-adserver",
+  "version": "1.0.0",
+  "description": "mock ad server for persona ad stitcher module",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "express": "~4.13.1"
+  },
+  "author": "dobri-dobrev",
+  "license": "ISC"
+}
